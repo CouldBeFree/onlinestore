@@ -1,14 +1,20 @@
 <template>
- <h1>Hello Vue js</h1>
+  <v-app>
+    <Navbar></Navbar>
+  </v-app>
 </template>
 
 <script>
-export default {
-  data () {
-    return {
+  import Navbar from './components/Navbar'
+  export default {
+    components:{
+      Navbar
+    },
+    data () {
+      return {
 
-    }
-  },
-  name: 'App'
-}
+      }
+    },
+    name: 'App'
+  }
 </script>
