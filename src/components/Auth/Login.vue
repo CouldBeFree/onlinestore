@@ -13,7 +13,7 @@
                 prepend-icon="person"
                 name="Email"
                 label="Email"
-                :rules="emailRules"
+                :rule="emailRules"
                 type="email">
               </v-text-field>
               <v-text-field
