@@ -3,7 +3,7 @@
     <v-layout row>
       <v-flex xs12 sm6 offset-sm3>
         <h1 class="text--secondary mb-3">Create New product</h1>
-        <v-form ref="form" v-model="valid" lazy-validation>
+        <v-form ref="form" v-model="valid" lazy-validation class="mb-3">
           <v-text-field
             v-model="title"
             name="title"
@@ -33,17 +33,17 @@
           <v-text-field
             v-model="price"
             name="price"
-            :rule="[v => !!v || 'Title is require']"
             required
+            :rule="[v => !!v || 'Title is require']"
             label="Price Product"
             type="text">
           </v-text-field>
-          <v-text-field
+          <v-textarea
             v-model="description"
             name="description"
             label="Description Product"
             type="text">
-          </v-text-field>
+          </v-textarea>
         </v-form>
         <v-layout class="mb3">
           <v-flex xs12>
@@ -55,11 +55,22 @@
         </v-layout>
         <v-layout>
           <v-flex xs12>
-            <img src="https://image.ibb.co/jBZOMo/ASUS_TUF_Gaming_FX504_GD.jpg" alt="item-image" height="200px">
+            <img src="" height="200px">
           </v-flex>
         </v-layout>
         <v-layout>
           <v-flex xs12>
+            <v-switch
+              color="primary"
+              label="Add to promo?"
+              v-model="promo"
+            ></v-switch>
+          </v-flex>
+        </v-layout>
+        <v-layout>
+          <v-flex xs12>
+            <v-spacer></v-spacer>
+            <v-btn :disabled="!valid" class="success" @click="createProduct">Create Product</v-btn>
           </v-flex>
         </v-layout>
       </v-flex>
@@ -69,10 +80,34 @@
 
 <script>
   export default {
-    name: "New product",
+    name: "new-product",
     data(){
       return{
+        title: '',
+        vendor: '',
+        color: '',
+        material: '',
+        price: 0,
+        description: '',
+        promo: false,
+        valid: false
+      }
+    },
+    methods: {
+      createProduct(){
+        if(this.$refs.form.validate()){
+          const product = {
+            title: this.title,
+            vendor: this.vendor,
+            color: this.color,
+            material: this.material,
+            price: this.price,
+            description: this.description,
+            promo: this.promo
+          };
 
+          console.log(product);
+        }
       }
     }
   }
