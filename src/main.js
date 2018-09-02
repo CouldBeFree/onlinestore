@@ -5,9 +5,11 @@ import App from './App'
 import router from './router'
 import store from './store'
 import Vuetify from 'vuetify'
+import RouterSync from 'vuex-router-sync'
 import 'vuetify/dist/vuetify.min.css'
 
 Vue.use(Vuetify);
+Vue.use(RouterSync);
 
 Vue.config.productionTip = false;
 
