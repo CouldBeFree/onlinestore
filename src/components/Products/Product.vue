@@ -40,7 +40,7 @@
 <script>
   export default {
     name: "Product",
-    props: ['id', 'currentProduct'],
+    props: ['id', 'current'],
     computed: {
       product () {
         const id = this.id;

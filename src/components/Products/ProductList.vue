@@ -27,8 +27,8 @@
                 <v-btn
                   class="info"
                   :to="'/product/' + product.id"
-                  @click="getCurrent(product)"
                 >Open</v-btn>
+                <button @click="getCurrent(product)">Click</button>
               </v-card-actions>
             </v-flex>
           </v-layout>
