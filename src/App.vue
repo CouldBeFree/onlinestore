@@ -1,6 +1,24 @@
 <template>
   <v-app>
-    <Navbar></Navbar>
+   <Navbar/>
+    <template v-if="error">
+      <v-snackbar
+        :multi-line="true"
+        :timeout="5000"
+        color="error"
+        @input="closeError"
+        :value="true"
+      >
+        {{ error }}
+        <v-btn
+          dark
+          flat
+          @click.native="closeError"
+        >
+          Close
+        </v-btn>
+      </v-snackbar>
+    </template>
   </v-app>
 </template>
 
@@ -13,6 +31,16 @@
     data () {
       return {
 
+      }
+    },
+    methods: {
+      closeError(){
+        this.$store.dispatch('clearError')
+      }
+    },
+    computed: {
+      error(){
+        return this.$store.getters.error
       }
     },
     name: 'App'
