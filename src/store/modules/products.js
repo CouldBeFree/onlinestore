@@ -52,7 +52,7 @@ export default {
     },
     productById (state) {
       return productId => {
-        return state.products.find(product => product.id == productId)
+        return state.products.find(product => product.id.toString() === productId)
       }
     }
   }

@@ -28,7 +28,6 @@
                   class="info"
                   :to="'/product/' + product.id"
                 >Open</v-btn>
-                <button @click="getCurrent(product)">Click</button>
               </v-card-actions>
             </v-flex>
           </v-layout>
@@ -41,16 +40,6 @@
 <script>
   export default {
     name: "Product-list",
-    data(){
-      return{
-        currentProduct: {}
-      }
-    },
-    methods:{
-      getCurrent(item){
-        this.currentProduct = item
-      }
-    },
     computed: {
       myProducts(){
         return this.$store.getters.myProducts
