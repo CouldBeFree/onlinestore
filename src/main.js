@@ -6,6 +6,7 @@ import router from './router'
 import store from './store'
 import Vuetify from 'vuetify'
 import RouterSync from 'vuex-router-sync'
+import * as fb from 'firebase/app'
 import 'vuetify/dist/vuetify.min.css'
 
 Vue.use(Vuetify);
@@ -19,5 +20,17 @@ new Vue({
   router,
   store,
   components: { App },
-  template: '<App/>'
+  template: '<App/>',
+  created(){
+    // Initialize Firebase
+    let config = {
+      apiKey: 'AIzaSyCxV4SoJw3Vp088wuw6328NLtrPg7oGF44',
+      authDomain: 'onlinestore-299a7.firebaseapp.com',
+      databaseURL: 'https://onlinestore-299a7.firebaseio.com',
+      projectId: 'onlinestore-299a7',
+      storageBucket: 'onlinestore-299a7.appspot.com',
+      messagingSenderId: '132664446018'
+    };
+    fb.initializeApp(config);
+  }
 });

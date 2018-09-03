@@ -44,7 +44,6 @@
     computed: {
       product () {
         const id = this.id;
-        console.log(typeof id);
         return this.$store.getters.productById(id);
       }
     }

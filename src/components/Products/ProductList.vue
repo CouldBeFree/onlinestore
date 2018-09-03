@@ -7,7 +7,6 @@
           class="elevation-10 mb-2"
           v-for="product in myProducts"
           :key="product.id"
-          :current="currentProduct"
         >
           <v-layout>
             <v-flex xs4>
