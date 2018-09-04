@@ -105,8 +105,6 @@
             description: this.description,
             promo: this.promo
           };
-
-          console.log(product);
         }
       }
     }
