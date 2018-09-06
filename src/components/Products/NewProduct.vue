@@ -70,7 +70,12 @@
         <v-layout>
           <v-flex xs12>
             <v-spacer></v-spacer>
-            <v-btn :disabled="!valid" class="success" @click="createProduct">Create Product</v-btn>
+            <v-btn
+              :loading="loading"
+              :disabled="!valid || loading"
+              class="success"
+              @click="createProduct"
+            >Create Product</v-btn>
           </v-flex>
         </v-layout>
       </v-flex>
@@ -93,6 +98,11 @@
         valid: false
       }
     },
+    computed: {
+      loading(){
+        return this.$store.getters.loading
+      }
+    },
     methods: {
       createProduct(){
         if(this.$refs.form.validate()){
@@ -103,8 +113,17 @@
             material: this.material,
             price: this.price,
             description: this.description,
-            promo: this.promo
+            promo: this.promo,
+            imageSrc: 'https://image.ibb.co/fxDsgo/Apple_macbook.jpg'
           };
+
+          this.$store.dispatch('createProduct', product)
+            .then(() => {
+              this.$router.push('/list')
+            })
+            .catch((e) => {
+              console.log(e);
+            })
         }
       }
     }
