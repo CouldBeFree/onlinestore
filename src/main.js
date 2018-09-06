@@ -37,6 +37,7 @@ new Vue({
       if(user){
         this.$store.dispatch('autoLoginUser', user)
       }
-    })
+    }),
+    this.$store.dispatch('fetchProducts')
   }
 });
